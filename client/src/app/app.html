@@ -1,0 +1,114 @@
+
+<div class="container">
+  <header>
+    <h1>📱 Телефонная книга</h1>
+    <p>Управление личными контактами</p>
+  </header>
+
+  <section class="form-section">
+    <h2>{{ editingId ? 'Редактирование контакта' : 'Добавить контакт' }}</h2>
+
+    <form (ngSubmit)="saveContact()">
+      <div class="form-group">
+        <label>Имя</label>
+        <input
+          type="text"
+          name="firstName"
+          [(ngModel)]="form.firstName"
+          placeholder="Введите имя"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Фамилия</label>
+        <input
+          type="text"
+          name="lastName"
+          [(ngModel)]="form.lastName"
+          placeholder="Введите фамилию"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Телефон</label>
+        <input
+          type="tel"
+          name="phone"
+          [(ngModel)]="form.phone"
+          placeholder="+79991234567"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="form.email"
+          placeholder="example@mail.ru"
+        >
+      </div>
+
+      <div class="buttons">
+        <button type="submit" class="save-btn">
+          {{ editingId ? 'Сохранить изменения' : 'Добавить контакт' }}
+        </button>
+
+        @if (editingId) {
+          <button type="button" class="cancel-btn" (click)="resetForm()">
+            Отмена
+          </button>
+        }
+      </div>
+    </form>
+
+    @if (successMessage) {
+      <p class="success">{{ successMessage }}</p>
+    }
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+  </section>
+
+  <section class="contacts-section">
+    <h2>Мои контакты</h2>
+
+    @if (contacts.length === 0) {
+      <p class="empty">Контактов пока нет.</p>
+    } @else {
+      <div class="contact-list">
+        @for (contact of contacts; track contact._id) {
+          <div class="contact-card">
+            <div class="contact-info">
+              <h3>{{ contact.firstName }} {{ contact.lastName }}</h3>
+              <p>📞 {{ contact.phone }}</p>
+              <p>✉️ {{ contact.email || 'Email не указан' }}</p>
+            </div>
+
+            <div class="contact-actions">
+              <button
+                type="button"
+                class="edit-btn"
+                (click)="editContact(contact)"
+              >
+                Изменить
+              </button>
+
+              <button
+                type="button"
+                class="delete-btn"
+                (click)="deleteContact(contact._id!)"
+              >
+                Удалить
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </section>
+</div>

@@ -1,0 +1,163 @@
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f3f4f8;
+  color: #25283b;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #34365c;
+}
+
+header p {
+  color: #77798d;
+}
+
+.form-section,
+.contacts-section {
+  background: white;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 22px;
+  color: #34365c;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d9dbea;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #7775d8;
+}
+
+.buttons,
+.contact-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  padding: 11px 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.save-btn {
+  background: #6563c7;
+  color: white;
+}
+
+.cancel-btn {
+  background: #e8e8ef;
+  color: #333;
+}
+
+.contact-list {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  border: 1px solid #e6e6ef;
+  border-radius: 10px;
+}
+
+.contact-info h3 {
+  margin: 0 0 10px;
+}
+
+.contact-info p {
+  margin: 6px 0;
+  color: #66687a;
+}
+
+.edit-btn {
+  background: #e7e7fa;
+  color: #4543a0;
+}
+
+.delete-btn {
+  background: #ffe7e7;
+  color: #bd3d3d;
+}
+
+.success {
+  color: #21834c;
+  margin-bottom: 0;
+}
+
+.error {
+  color: #c0392b;
+  margin-bottom: 0;
+}
+
+.empty {
+  color: #77798d;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 12px;
+  }
+
+  .contact-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+}
